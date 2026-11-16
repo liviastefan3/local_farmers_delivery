@@ -1,5 +1,6 @@
 package com.example.localfarmersdelivery
 
+import android.content.Intent
 import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
@@ -48,6 +49,7 @@ class RegisterActivity : AppCompatActivity() {
                 db.collection("users").document(uid).set(user)
                     .addOnSuccessListener {
                         Toast.makeText(this, "Cont creat!", Toast.LENGTH_LONG).show()
+                        Navigation.openHome(this)
                     }
                     .addOnFailureListener { e ->
                         Toast.makeText(this, "Eroare Firestore: ${e.message}", Toast.LENGTH_LONG).show()
